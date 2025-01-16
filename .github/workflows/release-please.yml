@@ -17,4 +17,3 @@ jobs:
           token: ${{ secrets.RELEASE_PLEASE_PAT }}
           default-branch: main
           target-branch: main
-
