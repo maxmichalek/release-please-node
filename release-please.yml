@@ -1,0 +1,20 @@
+name: Release Please
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release_please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+        with:
+          command: manifest
+          token: ${{ secrets.RELEASE_PLEASE_PAT }}
+          default-branch: main
+          target-branch: main
+
